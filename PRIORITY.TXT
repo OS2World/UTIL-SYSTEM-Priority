@@ -1,0 +1,32 @@
+PRIORITY.EXE is public domain (C source and OS/2 16-bit (1.x)
+executable).  It can be used to fire up an OS/2 application at any
+priority.  Note that some OS/2 applications adjust their own priority;
+this shouldn't be used with them.
+
+To use, call as:
+
+  PRIORITY.EXE <priclass> <pridelta> <prog to run> <args> <for> <prog>
+
+<priclass> can be from 1 to 4.  Priority increases with the value of the
+number, except that class 4 (which was added after class 3 already
+existed) is lower than class 3.  So:    1  2  4  3  in order of
+ascending priority.  PRIORITY will abort with errorlevel 1 if <priclass>
+is invalid, or if not enough arguments are passed.  Otherwise, it
+returns the errorcode returned by <prog to run>.
+
+<pridelta> is from 0 to 31.  The higher the number the higher the
+priority within the priority class.
+
+<prog to run> is the program you want to run.
+
+<args> <for> <prog> are the arguments passed to <prog to run>.  There
+can be as many of them as you like.  Just thing of everything from <prog
+to run> on as a regular command line.
+
+TESTPRI.CMD in the archive will demonstrate how Priority works and
+verify that it works as advertised.
+
+
+M. Kimes
+(318)222-3455 data
+1:380/16.0@Fidonet
